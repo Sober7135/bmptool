@@ -21,7 +21,7 @@ int main() {
 
   // 复制前面的部分
   fseek(fp_r, 0, SEEK_SET);
-  while (fread(&rgb, 1, 1, fp_r) && i < n) {
+  while ( i < n && fread(&rgb, 1, 1, fp_r)) {
     fwrite(&rgb, 1, 1, fp_w);
     rgb = 0;
     i++;
