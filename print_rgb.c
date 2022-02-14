@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
     exit(EXIT_FAILURE);
   }
 
-  FILE* fp_r = fopen("image/duplicate_test1.bmp", "r");
+  FILE* fp_r = fopen("image/duplicate_test.bmp", "r");
   RGB rgb;
   COORDINATE a;
   int n = 0;
@@ -35,6 +35,11 @@ int main(int argc, char* argv[]) {
 
   if (!fp_r) {
     fprintf(stderr, "error in opening the file");
+    exit(EXIT_FAILURE);
+  }
+
+  if(a.x > image.x || a.y > image.y){
+    fprintf(stderr, "error in coordinate");
     exit(EXIT_FAILURE);
   }
 
