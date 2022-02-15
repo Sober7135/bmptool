@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef unsigned char BYTE;
+
 int main(int argc, char* argv[]) {
   if (argc == 1) {
     fprintf(stderr, "missing file operand\n");
@@ -15,7 +17,7 @@ int main(int argc, char* argv[]) {
 
   FILE* fp_r;
   FILE* fp_w;
-  int rgb;
+  BYTE rgb;
   fp_r = fopen(argv[1], "rb");
   fp_w = fopen(argv[2], "wb");
   if (!fp_r) {
@@ -29,7 +31,6 @@ int main(int argc, char* argv[]) {
 
   while (fread(&rgb, 1, 1, fp_r)) {
     fwrite(&rgb, 1, 1, fp_w);
-    rgb &= 0;
   }
   fclose(fp_r);
   fclose(fp_w);
