@@ -1,8 +1,9 @@
+// ./copy a.bmp b.bmp
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-typedef unsigned char BYTE;
+#include "bmp.h"
 
 int main(int argc, char* argv[]) {
   if (argc == 1) {
@@ -18,6 +19,7 @@ int main(int argc, char* argv[]) {
   FILE* fp_r;
   FILE* fp_w;
   BYTE rgb;
+
   fp_r = fopen(argv[1], "rb");
   fp_w = fopen(argv[2], "wb");
   if (!fp_r) {
@@ -32,6 +34,7 @@ int main(int argc, char* argv[]) {
   while (fread(&rgb, 1, 1, fp_r)) {
     fwrite(&rgb, 1, 1, fp_w);
   }
+
   fclose(fp_r);
   fclose(fp_w);
   return 0;

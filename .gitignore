@@ -2,3 +2,5 @@ test.c
 test_fwrite.c
 bin
 image
+.vscode
+cmp.c

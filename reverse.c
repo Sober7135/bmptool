@@ -1,7 +1,9 @@
+// ./reverse a.bmp b.bmp
+
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef unsigned char BYTE;
+#include "bmp.h"
 
 int main(int argc, char* argv[]) {
   if (argc == 1) {
@@ -48,4 +50,5 @@ int main(int argc, char* argv[]) {
   }
   fclose(fp_r);
   fclose(fp_w);
+  return 0;
 }
